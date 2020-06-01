@@ -10,20 +10,48 @@
         <property name="id" value="1"></property>
         <property name="name" value="陈晋坤"></property>
         <property name="age" value="22"></property>
-        <property name="address" ref="address"></property>
+        <property name="address">
+            <list>
+                <ref bean="address"></ref>
+                <ref bean="address2"></ref>
+            </list>
+        </property>
     </bean>
 
+    <bean id="stu" class="com.project1.entity.Student" parent="student">
+        <property name="name" value="王子威"></property>
+    </bean>
     <!--有参构造-->
-    <bean id="student2" class="com.project1.entity.Student">
+    <!--<bean id="student2" class="com.project1.entity.Student">
         <constructor-arg name="id" value="2"></constructor-arg>
         <constructor-arg name="name" value="王子威"></constructor-arg>
         <constructor-arg name="age" value="24"></constructor-arg>
         <constructor-arg name="address" ref="address"></constructor-arg>
-    </bean>
+    </bean>-->
+
+    <!-- scope 默认单例-->
+   <!-- <bean id="student3" class="com.project1.entity.Student" scope="prototype">
+        <property name="name" value="姚毅杰"></property>
+    </bean>-->
+
+    <!--<bean id="student3" class="com.project1.entity.Student">
+        <property name="id" value="10"></property>
+        <property name="name" value="姚毅杰"></property>
+        <property name="age" value="20"></property>
+        <property name="address" ref="address"></property>
+    </bean>-->
 
     <bean id="address" class="com.project1.entity.Address">
         <property name="id" value="1"></property>
         <property name="name" value="1333 SouthPark"></property>
     </bean>
+
+    <bean id="address2" class="com.project1.entity.Address">
+        <property name="id" value="2"></property>
+        <property name="name" value="5713 Victoria"></property>
+    </bean>
+
+    <bean id="user" class="com.project1.entity.User" parent="stu"></bean>
+
 
 </beans>
